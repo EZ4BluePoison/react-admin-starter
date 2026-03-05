@@ -93,8 +93,8 @@ export const getColumns = (): TableColumnType[] => [
     transform: (value) => {
       if (value && value.length === 2) {
         return {
-          startTime: value[0]?.format?.('YYYY-MM-DD 00:00:00'),
-          endTime: value[1]?.format?.('YYYY-MM-DD 23:59:59'),
+          submitTimeStart: value[0]?.format?.('YYYY-MM-DD 00:00:00'),
+          submitTimeEnd: value[1]?.format?.('YYYY-MM-DD 23:59:59'),
         }
       }
       return {}

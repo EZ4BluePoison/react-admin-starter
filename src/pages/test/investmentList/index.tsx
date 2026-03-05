@@ -5,6 +5,7 @@ import { useRef, useState } from 'react'
 import { PlusOutlined } from '@ant-design/icons'
 
 import { InnerRefType, ProTable, ActionRefType } from 'react-admin-kit'
+import { hasPermission } from '@/utils'
 
 import { getColumns } from './columns'
 import type { TabsProps } from 'antd'
@@ -91,16 +92,18 @@ function InvestmentFlow() {
                 gap: '16px',
               }}
             >
-              <Button
-                key="add"
-                type="primary"
-                icon={<PlusOutlined />}
-                onClick={() => {
-                  toRelative('form')
-                }}
-              >
-                新增
-              </Button>
+              {hasPermission('investmentListAdd') && (
+                <Button
+                  key="add"
+                  type="primary"
+                  icon={<PlusOutlined />}
+                  onClick={() => {
+                    toRelative('form')
+                  }}
+                >
+                  新增
+                </Button>
+              )}
 
               <Tabs
                 activeKey={statusFilter}
