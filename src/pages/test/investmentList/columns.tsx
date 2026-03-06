@@ -84,17 +84,12 @@ export const getColumns = (): TableColumnType[] => [
     dataIndex: 'submitTime',
     type: 'search',
     valueType: 'dateRange',
-    renderFormItem: () => (
-      <RangePicker
-        placeholder={['开始时间', '结束时间']}
-        style={{ width: '100%' }}
-      />
-    ),
+
     transform: (value) => {
       if (value && value.length === 2) {
         return {
-          submitTimeStart: value[0]?.format?.('YYYY-MM-DD 00:00:00'),
-          submitTimeEnd: value[1]?.format?.('YYYY-MM-DD 23:59:59'),
+          submitTimeStart: value[0],
+          submitTimeEnd: value[1],
         }
       }
       return {}
