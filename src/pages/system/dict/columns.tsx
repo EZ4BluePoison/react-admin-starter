@@ -94,22 +94,6 @@ export const getDictColumns = (): TableColumnType[] => {
       },
     },
     {
-      title: '附件',
-      dataIndex: 'attachments',
-      hideInTable: true, // 不在表格中显示
-      renderFormItem: () => (
-        <FormUpload
-          maxCount={5} // 最多上传5个文件
-          multiple // 支持多选
-        >
-          <button>上传附件</button>
-        </FormUpload>
-      ),
-      formItemProps: {
-        extra: '支持上传多个文件，单个文件大小不超过20MB',
-      },
-    },
-    {
       title: '操作',
       valueType: 'option',
       width: 100,
